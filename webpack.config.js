@@ -5,6 +5,7 @@ module.exports = {
   mode: "development",
   entry: "./src/app.ts",
   devServer: {
+    liveReload: false,
     static: [
       {
         directory: path.join(__dirname),
@@ -16,11 +17,10 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/dist/",
   },
-  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
@@ -29,5 +29,6 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"],
   },
+
   plugins: [new Dotenv()],
 };
